@@ -70,11 +70,12 @@ public class Main {
 
                         } while (newinclusaoCHAR == 's' || newinclusaoCHAR == 'S');
                         break;
+                    //Menu principal -> Cadastro de Produtos -> Alteração
                     case '2':
 
                 }
                 break;
-                // Menu principal -> Movimentação de produtos
+            // Menu principal -> Movimentação de produtos
             case '2':
                 String movimentacao = JOptionPane.showInputDialog("""
                                     XYZ COMERCIO DE PRODUTOS LTDA.
@@ -87,7 +88,7 @@ public class Main {
                                     0 - RETORNAR \n
                                     DIGITE A OPÇÃO DESEJADA: """);
                 break;
-                // Menu principal -> Reajuste de preços
+            // Menu principal -> Reajuste de preços
             case '3':
                 String reajuste = JOptionPane.showInputDialog("""
                                     XYZ COMERCIO DE PRODUTOS LTDA.
@@ -96,7 +97,7 @@ public class Main {
                                      REAJUSTE DE PREÇOS
                                                               """);
                 break;
-                // Menu principal -> Relatórios
+            // Menu principal -> Relatórios
             case '4':
                 String relatorios = JOptionPane.showInputDialog("""
                                     XYZ COMERCIO DE PRODUTOS LTDA.
