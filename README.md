@@ -3,7 +3,7 @@
 ##  Universidade do Sul de Santa Catarina (UNISUL)
 
 **Unidade Curricular:** Algoritmos e Programação
-**Professor:** Ricardo Ribeiro Assink e Osmar
+**Professor:** Ricardo Ribeiro Assink e Osmar braz
 
 ---
 
