@@ -5,7 +5,7 @@ public class Main {
 
     static String[] nomes = new String[100];
     static double[] precos = new double[100];
-    static int[] quantidades = new int[100];
+    static double[] quantidades = new double[100];
     static String[] unidades = new String[100];
     static int total = 0;
 
@@ -96,13 +96,14 @@ public class Main {
             String nome = JOptionPane.showInputDialog("Informe o nome do produto: ");
             double preco = Double.parseDouble(JOptionPane.showInputDialog("Informe o preço: "));
             String Uni = JOptionPane.showInputDialog("Informe a unidade de medida (ex: Kg,Un,Cx): ");
-            int qtde = Integer.parseInt(JOptionPane.showInputDialog("Informe a quantidade: "));
+            double qtde = Double.parseDouble(JOptionPane.showInputDialog("Informe a quantidade: "));
 
-            String confirma = JOptionPane.showInputDialog("""
-                    Confirma a inclusão?
-                    S - Sim
-                    N - Não
-                    """);
+            String confirma = JOptionPane.showInputDialog("Confirma inclusão?\n\n"
+                        + "Nome: " + nome
+                        + "\nPreço: " + preco
+                        + "\nQuantidade: " + qtde + Uni
+                        + "\n\nS - Sim"
+                        + "\nN - Não");
 
             char confirmaCHAR = confirma.charAt(0);
 
@@ -153,7 +154,7 @@ public class Main {
                         + "\nQuantidade: " + quantidades[pos] + unidades[pos]);
 
                 double novoPreco = Double.parseDouble(JOptionPane.showInputDialog("Novo preço:"));
-                int novaQtd = Integer.parseInt(JOptionPane.showInputDialog("Nova quantidade:"));
+                double novaQtd = Double.parseDouble(JOptionPane.showInputDialog("Nova quantidade:"));
                 String novaUni = JOptionPane.showInputDialog("Nova unidade de medida (ex: Kg,Un,Cx):");
 
                 String confirma = JOptionPane.showInputDialog("Confirma alteração?\n"
