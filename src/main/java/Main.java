@@ -317,7 +317,7 @@ public class Main {
                     entrada();
                     break;
                 case '2':
-                    JOptionPane.showMessageDialog(null, "Saída de produto.");
+                    saida();
                     break;
             }
 
@@ -399,6 +399,86 @@ public class Main {
 
         } while (novaEntradaChar == 'S' || novaEntradaChar == 's');
     }
+        // ================= saida ==================
+        static void saida() {
+    char novaSaidaChar;
+
+    do {
+        
+        if (total == 0) {
+            JOptionPane.showMessageDialog(null, "Nenhum produto cadastrado!");
+            return;
+        }
+
+        String nomeBusca = JOptionPane.showInputDialog("Informe o nome do produto:");
+        int pos = -1;
+
+        
+        for (int i = 0; i < total; i++) {
+            if (nomes[i].equalsIgnoreCase(nomeBusca)) {
+                pos = i;
+                break;
+            }
+        }
+
+        
+        if (pos == -1) {
+            JOptionPane.showMessageDialog(null, "Produto não encontrado!");
+        } else {
+
+           
+            JOptionPane.showMessageDialog(null,
+                    "PRODUTO: " + nomes[pos]
+                    + "\nQTDE ATUAL: " + quantidades[pos] + unidades[pos]);
+
+            
+            int saida = Integer.parseInt(
+                    JOptionPane.showInputDialog("Informe a quantidade de saída:")
+            );
+
+            
+            if (saida <= 0) {
+                JOptionPane.showMessageDialog(null, "Quantidade inválida!");
+            } else if (saida > quantidades[pos]) {
+                JOptionPane.showMessageDialog(null, "Estoque insuficiente!");
+            } else {
+
+                double qtdeFinal = quantidades[pos] - saida;
+
+                
+                JOptionPane.showMessageDialog(null,
+                        "QTDE FINAL: " + qtdeFinal + unidades[pos]);
+
+                
+                String confirma = JOptionPane.showInputDialog("""
+                        Confirma saída?
+                        S - Sim
+                        N - Não
+                        """);
+
+                char confirmaChar = confirma.charAt(0);
+
+                if (confirmaChar == 'S' || confirmaChar == 's') {
+                    quantidades[pos] = qtdeFinal;
+
+                    JOptionPane.showMessageDialog(null, "Saída realizada com sucesso!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Operação cancelada!");
+                }
+            }
+        }
+
+        
+        String novaSaida = JOptionPane.showInputDialog("""
+                Deseja realizar nova saída?
+                S - Sim
+                N - Não
+                """);
+
+        novaSaidaChar = novaSaida.charAt(0);
+
+    } while (novaSaidaChar == 'S' || novaSaidaChar == 's');
+}
     // ================= REAJUSTE =================
     static void reajuste() {
         JOptionPane.showMessageDialog(null, "Reajuste de preços.");
