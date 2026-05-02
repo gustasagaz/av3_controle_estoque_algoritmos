@@ -81,7 +81,7 @@ public class Main {
                     consultar();
                     break;
                 case '4':
-                    JOptionPane.showMessageDialog(null, "Exclusão ainda não implementada.");
+                    exclusao();
                     break;
             }
 
@@ -221,9 +221,77 @@ public class Main {
 
         } while (newconsultaChar == 'S' || newconsultaChar == 's');
         }
-                
+        // ================= exclusão ====================
+    static void exclusao() {
+        char newexclusaoChar;
+
+        do {
+            if (total == 0) {
+                JOptionPane.showMessageDialog(null, "Nenhum produto cadastrado!");
+                return;
+            }
+
+            String nomeBusca = JOptionPane.showInputDialog("Informe o nome do produto que deseja excluir:");
+
+            int pos = -1;
+
+            for (int i = 0; i < total; i++) {
+                if (nomes[i].equalsIgnoreCase(nomeBusca)) {
+                    pos = i;
+                    break;
+                }
+            }
+
+            if (pos == -1) {
+                JOptionPane.showMessageDialog(null, "Produto não encontrado!");
+            } else {
+
+                JOptionPane.showMessageDialog(null,
+                        "Produto encontrado!\n\n"
+                        + "Nome: " + nomes[pos]
+                        + "\nPreço: R$ " + precos[pos]
+                        + "\nUnidade: " + unidades[pos]
+                        + "\nQuantidade: " + quantidades[pos]);
+
+                String confirma = JOptionPane.showInputDialog("""
+                Confirma exclusão?
+                S - Sim
+                N - Não
+                """);
+
+                char confirmaChar = confirma.charAt(0);
+
+                if (confirmaChar == 'S' || confirmaChar == 's') {
+
+                    for (int i = pos; i < total - 1; i++) {
+                        nomes[i] = nomes[i + 1];
+                        precos[i] = precos[i + 1];
+                        unidades[i] = unidades[i + 1];
+                        quantidades[i] = quantidades[i + 1];
+                    }
+
+                    total--;
+
+                    JOptionPane.showMessageDialog(null, "Produto excluído com sucesso!");
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Exclusão cancelada!");
+                }
+            }
+
+            String novaexclusao = JOptionPane.showInputDialog("""
+                Deseja excluir outro produto?
+                S - Sim
+                N - Não
+                """);
+
+            newexclusaoChar = novaexclusao.charAt(0);
+
+        } while (newexclusaoChar == 'S' || newexclusaoChar == 's');
+    }
+    
         // ================= MOVIMENTAÇÃO =================
-    static void menuMovimentacao() {
+        static void menuMovimentacao() {
         char op;
 
         do {
