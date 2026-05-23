@@ -3,14 +3,61 @@ import auxiliares.FuncoesAuxiliares;
 import biblioteca.ListaProdutosOrdenados;
 import javax.swing.*;
 
+/**
+ * Classe principal do sistema de controle de estoque.
+ *
+ * O sistema permite: - Cadastro de produtos; - Alteração de produtos; -
+ * Consulta de produtos; - Exclusão de produtos; - Entrada e saída de estoque; -
+ * Reajuste de preços; - Emissão de relatórios.
+ *
+ * Os dados são armazenados em vetores paralelos.
+ *
+ * @author douglas
+ * @author DarthRuver007
+ * @author vicenteedu
+ * @author linndev9
+ *
+ */
 public class Main {
 
+    /**
+     * Vetor responsável por armazenar os nomes dos produtos.
+     *
+     */
     static String[] nomes = new String[100];
+
+    /**
+     * Vetor responsável por armazenar os preços dos produtos.
+     *
+     */
     static double[] precos = new double[100];
+
+    /**
+     * Vetor responsável por armazenar as quantidades dos produtos.
+     *
+     */
     static double[] quantidades = new double[100];
+
+    /**
+     * Vetor responsável por armazenar as unidades de medida.
+     *
+     */
     static String[] unidades = new String[100];
+
+    /**
+     * Variável responsável por controlar a quantidade total de produtos
+     * cadastrados no sistema.
+     *
+     */
     static int total = 0;
 
+    /**
+     * Método principal responsável pela execução do sistema.
+     *
+     * Exibe o menu principal e direciona o usuário para as funcionalidades
+     * escolhidas.
+     *
+     */
     public static void main(String[] args) {
 
         char menuCHAR;
@@ -60,7 +107,17 @@ public class Main {
         } while (menuCHAR != '0');
     }
 
-    // ================= MEUNU CADASTRO ===================
+    // ================= MENU CADASTRO ===================
+    /**
+     * Método responsável pelo menu de cadastro.
+     *
+     * Permite: 
+     * - Inclusão; 
+     * - Alteração; 
+     * - Consulta; 
+     * - Exclusão de produtos.
+     *
+     */
     static void menuCadastro() {
         char cadastroCHAR;
 
@@ -106,40 +163,52 @@ public class Main {
     }
 
     // ================= INCLUSÃO ==================
+    /**
+     * Método responsável pelo cadastro de novos produtos.
+     *
+     * O método: 
+     * - Solicita nome; 
+     * - Solicita preço; 
+     * - Solicita unidade; 
+     * - Solicita quantidade; 
+     * - Valida os dados informados; 
+     * - Armazena os dados nos vetores.
+     *
+     */
     static void incluir() {
         char newinclusaoCHAR;
 
         do {
             String nome = JOptionPane.showInputDialog("Informe o nome do produto: ");
             double preco = FuncoesAuxiliares.lerDouble("Nome: " + nome + "\n\nInforme o preço:");
-                if (preco <= 0) {
-                    JOptionPane.showMessageDialog(null, "O preço deve ser maior que zero.");
-                    return;
-                }
+            if (preco <= 0) {
+                JOptionPane.showMessageDialog(null, "O preço deve ser maior que zero.");
+                return;
+            }
             String Uni = FuncoesAuxiliares.lerUnidade(
-                        "Nome: " + nome
-                        + "\nPreço: R$" + String.format("%.2f", preco)
-                        + "\n\nInforme a unidade de medida (Kg, Un, Cx, Pct ou L):"
-                );
-                if (Uni == null) {
-                    JOptionPane.showMessageDialog(null, "Inclusão cancelada.");
-                    return;
-}
+                    "Nome: " + nome
+                    + "\nPreço: R$" + String.format("%.2f", preco)
+                    + "\n\nInforme a unidade de medida (Kg, Un, Cx, Pct ou L):"
+            );
+            if (Uni == null) {
+                JOptionPane.showMessageDialog(null, "Inclusão cancelada.");
+                return;
+            }
             double qtde = FuncoesAuxiliares.lerDouble(
                     "Nome: " + nome
                     + "\nPreço: R$" + String.format("%.2f", preco)
                     + "\nUnidade de medida: " + Uni
                     + "\n\nInforme a quantidade:"
             );
-                if (qtde < 0) {
-                    JOptionPane.showMessageDialog(null, "A quantidade deve ser maior ou igual a zero.");
-                    return;
-                    }
+            if (qtde < 0) {
+                JOptionPane.showMessageDialog(null, "A quantidade deve ser maior ou igual a zero.");
+                return;
+            }
 
             char confirmaCHAR = FuncoesAuxiliares.lerSimNao("Confirma inclusão?\n\n"
-                + "Nome: " + nome
-                + "\nPreço: R$" + String.format("%.2f", preco)
-                + "\nQuantidade: " + String.format("%.3f", qtde) + " " + Uni);
+                    + "Nome: " + nome
+                    + "\nPreço: R$" + String.format("%.2f", preco)
+                    + "\nQuantidade: " + String.format("%.3f", qtde) + " " + Uni);
 
             if (confirmaCHAR == 's' || confirmaCHAR == 'S') {
                 nomes[total] = nome;
@@ -159,14 +228,23 @@ public class Main {
     }
 
     // ================= altereção ================= 
+    /**
+     * Método responsável pela alteração dos dados de um produto.
+     *
+     * Permite alterar: 
+     * - Preço; 
+     * - Unidade; 
+     * - Quantidade.
+     *
+     */
     static void alterar() {
         char newalteracaoChar;
 
         do {
             if (FuncoesAuxiliares.estoqueVazio(total)) {
-            return;            
+                return;
             }
-            
+
             ListaProdutosOrdenados.mostrar(nomes, total);
             String nomeBusca = JOptionPane.showInputDialog("Informe o nome do produto que deseja alterar:");
 
@@ -211,14 +289,22 @@ public class Main {
     }
 
     // ================= CONSULTA ================
+    /**
+     * Método responsável pela consulta de produtos.
+     *
+     * Exibe: 
+     * - Nome; 
+     * - Preço; 
+     * - Quantidade.
+     *
+     */
     static void consultar() {
         char newconsultaChar;
 
-        do {            
+        do {
             if (FuncoesAuxiliares.estoqueVazio(total)) {
-            return;
+                return;
             }
-
 
             ListaProdutosOrdenados.mostrar(nomes, total);
             String nomeBusca = JOptionPane.showInputDialog("Informe o nome do produto que deseja consultar: ");
@@ -233,21 +319,30 @@ public class Main {
                         + "\nPreço: R$" + String.format("%.2f", precos[posConsulta])
                         + "\nQuantidade: " + String.format("%.3f", quantidades[posConsulta]) + unidades[posConsulta]);
             }
-            
+
             newconsultaChar = FuncoesAuxiliares.lerSimNao("Deseja consultar outro produto?");
 
         } while (newconsultaChar == 'S' || newconsultaChar == 's');
     }
 
     // ================= exclusão ====================
+    /**
+     * Método responsável pela exclusão de produtos.
+     *
+     * Após confirmação: 
+     * - Remove o produto; 
+     * - Reorganiza os vetores; 
+     * - Atualiza o total de produtos.
+     *
+     */
     static void exclusao() {
         char newexclusaoChar;
 
         do {
             if (FuncoesAuxiliares.estoqueVazio(total)) {
-            return;
+                return;
             }
-            
+
             ListaProdutosOrdenados.mostrar(nomes, total);
             if (FuncoesAuxiliares.estoqueVazio(total)) {
                 return;
@@ -299,6 +394,14 @@ public class Main {
     }
 
     // ================= MOVIMENTAÇÃO =================
+    /**
+     * Método responsável pelo menu de movimentação.
+     *
+     * Permite: 
+     * - Entrada de estoque; 
+     * - Saída de estoque.
+     *
+     */
     static void menuMovimentacao() {
         char op = ' ';
 
@@ -314,7 +417,7 @@ public class Main {
                                     0 - RETORNAR
                                     
                                     DIGITE A OPÇÃO: """);
-            
+
             if (movimentacao == null || !movimentacao.matches("[0-2]")) {
                 JOptionPane.showMessageDialog(null, "Digite uma opção válida.");
                 continue;
@@ -323,8 +426,8 @@ public class Main {
             op = movimentacao.charAt(0);
 
             switch (op) {
-                case '0':                    
-                break;
+                case '0':
+                    break;
                 case '1':
                     entrada();
                     break;
@@ -332,20 +435,26 @@ public class Main {
                     saida();
                     break;
                 default:
-                   JOptionPane.showMessageDialog(null, "Digite uma opção válida.");
-                   break;
+                    JOptionPane.showMessageDialog(null, "Digite uma opção válida.");
+                    break;
             }
 
         } while (op != '0');
     }
 
     // ================= entrada ==================
+    /**
+     * Método responsável pela entrada de produtos no estoque.
+     *
+     * Soma a quantidade informada ao estoque atual.
+     *
+     */
     static void entrada() {
         char novaEntradaChar;
 
-        do {            
+        do {
             if (FuncoesAuxiliares.estoqueVazio(total)) {
-            return;
+                return;
             }
 
             ListaProdutosOrdenados.mostrar(nomes, total);
@@ -363,7 +472,7 @@ public class Main {
                         + "\nQTDE ATUAL: " + quantidades[pos] + unidades[pos]);
 
                 double entrada = FuncoesAuxiliares.lerDouble(
-                    "Informe a quantidade de entrada:"
+                        "Informe a quantidade de entrada:"
                 );
 
                 if (entrada <= 0) {
@@ -376,7 +485,6 @@ public class Main {
                             "QTDE FINAL: " + qtdeFinal + unidades[pos]);
 
                     char confirmaChar = FuncoesAuxiliares.lerSimNao("Confirma entrada?");
-                    
 
                     if (confirmaChar == 'S' || confirmaChar == 's') {
                         quantidades[pos] = qtdeFinal;
@@ -393,13 +501,20 @@ public class Main {
         } while (novaEntradaChar == 'S' || novaEntradaChar == 's');
     }
     // ================= saida ==================
-
+    /**
+     * Método responsável pela saída de produtos do estoque.
+     *
+     * Realiza: 
+     * - Validação de estoque; 
+     * - Baixa de quantidade.
+     *
+     */
     static void saida() {
         char novaSaidaChar;
 
         do {
             if (FuncoesAuxiliares.estoqueVazio(total)) {
-            return;
+                return;
             }
 
             ListaProdutosOrdenados.mostrar(nomes, total);
@@ -416,7 +531,7 @@ public class Main {
                         + "\nQTDE ATUAL: " + quantidades[pos] + unidades[pos]);
 
                 double saida = FuncoesAuxiliares.lerDouble(
-                    "Informe a quantidade de saída:"
+                        "Informe a quantidade de saída:"
                 );
 
                 if (saida <= 0) {
@@ -448,6 +563,14 @@ public class Main {
     }
 
     // ================= REAJUSTE =================
+    /**
+     * Método responsável pelo reajuste de preços.
+     *
+     * Permite: 
+     * - Reajuste geral; 
+     * - Reajuste individual.
+     *
+     */
     static void reajuste() {
         char novoReajusteChar;
 
@@ -547,7 +670,10 @@ public class Main {
         } while (novoReajusteChar == 'S' || novoReajusteChar == 's');
     }
 // ================= RELATÓRIOS =================
-
+    /**
+     * Método responsável pelo menu de relatórios.
+     *
+     */
     static void menuRelatorios() {
         char op;
 
@@ -576,6 +702,10 @@ public class Main {
     }
 
 // ================= LISTA DE PREÇOS ===================
+    /**
+     * Método responsável pela geração do relatório de lista de preços.
+     *
+     */
     static void listaPrecos() {
 
         if (FuncoesAuxiliares.estoqueVazio(total)) {
@@ -616,6 +746,14 @@ public class Main {
     }
 
     // ================= BALANÇO FÍSICO-FINANCEIRO ==================
+    /**
+     * Método responsável pela geração do relatório de balanço físico-financeiro.
+     *
+     * Calcula: 
+     * - Valor total por produto; 
+     * - Valor total geral do estoque.
+     *
+     */
     static void balancoFisicoFinanceiro() {
 
         if (FuncoesAuxiliares.estoqueVazio(total)) {

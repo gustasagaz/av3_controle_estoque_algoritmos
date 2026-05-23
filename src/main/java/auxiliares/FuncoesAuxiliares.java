@@ -1,26 +1,28 @@
 package auxiliares;
 
 import javax.swing.JOptionPane;
+
 /**
  * Classe com funçoes auxíliares utilizadas no sistema.
- * 
- * responsavel por:
+ *
+ * responsavel por: 
  * - Buscar produtos 
- * - Verificar se o estoque está vazio
- * - Validar entradas numéricas
- * - Validar respostas Sim/Não
+ * - Verificar se o estoque está vazio 
+ * - Validar entradas numéricas 
+ * - Validar respostas Sim/Não 
  * - Validar unidades de medida
- * 
+ *
  * @author vicenteedu
  * @author douglas
  * @author DarthRuver007
  * @author linndev9
- * 
+ *
  */
 public class FuncoesAuxiliares {
-   /**
+
+    /**
      * Busca um produto pelo nome no vetor de produtos.
-     * 
+     *
      * @param nomes vetor contendo os nomes dos produtos
      * @param total quantidade total de produtos cadastrados
      * @param nomeBusca nome do produto a ser localizado
@@ -36,9 +38,10 @@ public class FuncoesAuxiliares {
 
         return -1;
     }
-/**
+
+    /**
      * Verifica se o estoque está vazio.
-     * 
+     *
      * @param total quantidade total de produtos cadastrados
      * @return true se o estoque estiver vazio, false caso contrário
      */
@@ -51,12 +54,12 @@ public class FuncoesAuxiliares {
 
         return false;
     }
-     /**
+
+    /**
      * Realiza a leitura de valores numéricos do tipo double.
-     * 
-     * O método continua solicitando a entrada até que
-     * um valor válido seja informado.
-     * 
+     *
+     * O método continua solicitando a entrada até que um valor válido seja informado.
+     *
      * @param mensagem mensagem exibida ao usuário
      * @return valor double informado ou -1 em caso de cancelamento
      */
@@ -75,36 +78,37 @@ public class FuncoesAuxiliares {
             }
         }
     }
-   /**
+
+    /**
      * Lê e valida respostas do tipo Sim ou Não.
-     * 
+     *
      * @param mensagem mensagem exibida ao usuário
      * @return caractere correspondente à resposta informada
      */
     public static char lerSimNao(String mensagem) {
-            while (true) {
-                String resposta = JOptionPane.showInputDialog(mensagem + "\n\nS - Sim\nN - Não");
+        while (true) {
+            String resposta = JOptionPane.showInputDialog(mensagem + "\n\nS - Sim\nN - Não");
 
-                if (resposta == null || resposta.length() != 1) {
-                    JOptionPane.showMessageDialog(null, "Digite apenas S ou N.");
-                    continue;
-                }
+            if (resposta == null || resposta.length() != 1) {
+                JOptionPane.showMessageDialog(null, "Digite apenas S ou N.");
+                continue;
+            }
 
-                char opcao = resposta.charAt(0);
+            char opcao = resposta.charAt(0);
 
-                if (opcao == 'S' || opcao == 's' || opcao == 'N' || opcao == 'n') {
-                    return opcao;
-                } else {
+            if (opcao == 'S' || opcao == 's' || opcao == 'N' || opcao == 'n') {
+                return opcao;
+            } else {
                 JOptionPane.showMessageDialog(null, "Opção inválida. Digite S ou N.");
             }
         }
     }
+
     /**
      * Lê e valida a unidade de medida do produto.
-     * 
-     * As unidades aceitas são:
-     * Kg, Un, Cx, Pct e L.
-     * 
+     *
+     * As unidades aceitas são: Kg, Un, Cx, Pct e L.
+     *
      * @param mensagem mensagem exibida ao usuário
      * @return unidade válida informada ou null em caso de cancelamento
      */
@@ -131,4 +135,3 @@ public class FuncoesAuxiliares {
         }
     }
 }
-
