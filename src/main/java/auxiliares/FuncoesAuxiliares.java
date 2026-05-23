@@ -3,7 +3,13 @@ package auxiliares;
 import javax.swing.JOptionPane;
 
 public class FuncoesAuxiliares {
-
+    /**
+     * Função para buscar produtos 
+     * @param nomes
+     * @param total
+     * @param nomeBusca
+     * @return 
+     */
     public static int buscarProduto(String[] nomes, int total, String nomeBusca) {
 
         for (int i = 0; i < total; i++) {
@@ -14,7 +20,11 @@ public class FuncoesAuxiliares {
 
         return -1;
     }
-
+/**
+ * Função que verifica se o estoque esta vazio
+ * @param total
+ * @return 
+ */
     public static boolean estoqueVazio(int total) {
 
         if (total == 0) {
@@ -24,7 +34,11 @@ public class FuncoesAuxiliares {
 
         return false;
     }
-    
+    /**
+     * Função para ler apenas numeros
+     * @param mensagem
+     * @return 
+     */
     public static double lerDouble(String mensagem) {
         while (true) {
             String entrada = JOptionPane.showInputDialog(mensagem);
@@ -40,7 +54,11 @@ public class FuncoesAuxiliares {
             }
         }
     }
-    
+    /**
+     * Função para ler Sim ou Não
+     * @param mensagem
+     * @return 
+     */
     public static char lerSimNao(String mensagem) {
             while (true) {
                 String resposta = JOptionPane.showInputDialog(mensagem + "\n\nS - Sim\nN - Não");
@@ -59,7 +77,11 @@ public class FuncoesAuxiliares {
             }
         }
     }
-    
+    /**
+     * Função para verificar a unidade
+     * @param mensagem
+     * @return 
+     */
     public static String lerUnidade(String mensagem) {
         while (true) {
             String unidade = JOptionPane.showInputDialog(mensagem);
