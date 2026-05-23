@@ -1,14 +1,30 @@
 package auxiliares;
 
 import javax.swing.JOptionPane;
-
+/**
+ * Classe com funçoes auxíliares utilizadas no sistema.
+ * 
+ * responsavel por:
+ * - Buscar produtos 
+ * - Verificar se o estoque está vazio
+ * - Validar entradas numéricas
+ * - Validar respostas Sim/Não
+ * - Validar unidades de medida
+ * 
+ * @author vicenteedu
+ * @author douglas
+ * @author DarthRuver007
+ * @author linndev9
+ * 
+ */
 public class FuncoesAuxiliares {
-    /**
-     * Função para buscar produtos 
-     * @param nomes
-     * @param total
-     * @param nomeBusca
-     * @return 
+   /**
+     * Busca um produto pelo nome no vetor de produtos.
+     * 
+     * @param nomes vetor contendo os nomes dos produtos
+     * @param total quantidade total de produtos cadastrados
+     * @param nomeBusca nome do produto a ser localizado
+     * @return posição do produto no vetor ou -1 caso não encontrado
      */
     public static int buscarProduto(String[] nomes, int total, String nomeBusca) {
 
@@ -21,10 +37,11 @@ public class FuncoesAuxiliares {
         return -1;
     }
 /**
- * Função que verifica se o estoque esta vazio
- * @param total
- * @return 
- */
+     * Verifica se o estoque está vazio.
+     * 
+     * @param total quantidade total de produtos cadastrados
+     * @return true se o estoque estiver vazio, false caso contrário
+     */
     public static boolean estoqueVazio(int total) {
 
         if (total == 0) {
@@ -34,10 +51,14 @@ public class FuncoesAuxiliares {
 
         return false;
     }
-    /**
-     * Função para ler apenas numeros
-     * @param mensagem
-     * @return 
+     /**
+     * Realiza a leitura de valores numéricos do tipo double.
+     * 
+     * O método continua solicitando a entrada até que
+     * um valor válido seja informado.
+     * 
+     * @param mensagem mensagem exibida ao usuário
+     * @return valor double informado ou -1 em caso de cancelamento
      */
     public static double lerDouble(String mensagem) {
         while (true) {
@@ -54,10 +75,11 @@ public class FuncoesAuxiliares {
             }
         }
     }
-    /**
-     * Função para ler Sim ou Não
-     * @param mensagem
-     * @return 
+   /**
+     * Lê e valida respostas do tipo Sim ou Não.
+     * 
+     * @param mensagem mensagem exibida ao usuário
+     * @return caractere correspondente à resposta informada
      */
     public static char lerSimNao(String mensagem) {
             while (true) {
@@ -78,9 +100,13 @@ public class FuncoesAuxiliares {
         }
     }
     /**
-     * Função para verificar a unidade
-     * @param mensagem
-     * @return 
+     * Lê e valida a unidade de medida do produto.
+     * 
+     * As unidades aceitas são:
+     * Kg, Un, Cx, Pct e L.
+     * 
+     * @param mensagem mensagem exibida ao usuário
+     * @return unidade válida informada ou null em caso de cancelamento
      */
     public static String lerUnidade(String mensagem) {
         while (true) {
