@@ -1,9 +1,32 @@
 package biblioteca;
 
 import javax.swing.*;
-
+/**
+ * Classe responsável pela exibição de produtos em ordem alfabética.
+ * 
+ * A classe realiza:
+ * - Cópia do vetor de produtos
+ * - Ordenação alfabética dos nomes
+ * - Exibição da lista em interface gráfica
+ * 
+ * @author Vicente Eduardo
+ * @author Douglas
+ * @author DarthRuver007
+ * @author Linndev9
+ */
 public class ListaProdutosOrdenados {
-
+    /**
+     * Exibe os produtos cadastrados em ordem alfabética.
+     * 
+     * O método:
+     * - verifica se existem produtos cadastrados
+     * - cria uma cópia do vetor original
+     * - ordena os nomes alfabeticamente
+     * - exibe os produtos em uma janela com rolagem
+     * 
+     * @param nomes vetor contendo os nomes dos produtos
+     * @param total quantidade total de produtos cadastrados
+     */
     public static void mostrar(String[] nomes, int total) {
 
         if (total == 0) {
