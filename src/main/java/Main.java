@@ -180,6 +180,17 @@ public class Main {
 
         do {
             String nome = JOptionPane.showInputDialog("Informe o nome do produto: ");
+            boolean produtoExiste = false;
+            for (int i = 0; i < total; i++) {
+                if (nomes[i].equalsIgnoreCase(nome)) {
+                    produtoExiste = true;
+                    break;
+                }
+            }
+            if (produtoExiste) {
+                JOptionPane.showMessageDialog(null, "Produto já cadastrado.");
+                return;
+            }
             double preco = FuncoesAuxiliares.lerDouble("Nome: " + nome + "\n\nInforme o preço:");
             if (preco <= 0) {
                 JOptionPane.showMessageDialog(null, "O preço deve ser maior que zero.");
