@@ -3,18 +3,19 @@
 ##  Universidade do Sul de Santa Catarina (UNISUL)
 
 **Unidade Curricular:** Algoritmos e Programação
-**Professor:** Ricardo Ribeiro Assink e Osmar braz
+**Professor:** Ricardo Ribeiro Assink e Osmar Braz
 
 ---
 
-##  Integrantes do Grupo
+## Integrantes do Grupo
 
-* Douglas de Almeida Ruver - RA: 10726115128 - GitHub: DarthRuver007 , douglas
-* Gustavo Willian Sagaz - RA: 1072619904 - GitHub: gustasagaz
-* João Augusto Maciel de Jesus Xavier - RA: 1072611097 - GitHub: joaoa-maciel
-* Matheus Godinho de Almeida Linnemann - RA: 10726113992 - GitHub: linndev9
-* Vicente Eduardo Ieme Sens - RA: 10726114647 - GitHub: vicenteedu
-
+| Nome | R.A | GitHub |
+|---|---|---|
+| Douglas de Almeida Ruver | 10726115128 | [DarthRuver007](https://github.com/DarthRuver007) |
+| Vicente Eduardo Ieme Sens | 10726114647 | [vicenteedu](https://github.com/vicenteedu) |
+| João Augusto Maciel de Jesus Xavier | 1072611097 | [joaoa-maciel](https://github.com/joaoa-maciel) |
+| Matheus Godinho de Almeida Linnemann | 10726113992 | [linndev9](https://github.com/linndev9) |
+| Gustavo Willian Sagaz | 1072619904 | [gustasagaz](https://github.com/gustasagaz) |
 ---
 
 ##  Contexto
@@ -61,22 +62,14 @@ Desenvolver um sistema de controle de estoque capaz de gerenciar produtos, permi
 ##  Tecnologias Utilizadas
 
 * Java 21.0
-* JOptionPane (interface gráfica simples)
+* IDE utilizada: NeatBeans 
 * GitHub (controle de versão)
 
 ---
 
-##  Como Executar o Projeto
+1. Abra o projeto em uma IDE Java (NetBeans, Eclipse ou IntelliJ)
 
-1. Clone o repositório:
-
-```
-git clone: https://github.com/gustasagaz/av3_controle_estoque_algoritmos.git
-```
-
-2. Abra o projeto em uma IDE Java (NetBeans, Eclipse ou IntelliJ)
-
-3. Execute a classe principal:
+2. Execute a classe principal:
 
 ```
 Main.java
@@ -84,30 +77,32 @@ Main.java
 
 ---
 
-##  Estrutura do Repositório
+## Estrutura do Repositório
 
-```
+```bash
 📁 src/
- └── main.java
+└── Principal.java
+└── 📁 biblioteca/
+     ├── FuncoesAuxiliares.java
+     └── ListaProdutosOrdenados.java
 
 📄 README.md
 📄 .gitignore
 📄 LICENSE
+
 ```
 
+## 📌 Conclusão
+
+O desenvolvimento do sistema de controle de estoque permitiu a aplicação prática dos conhecimentos adquiridos na disciplina de Algoritmos e Programação, proporcionando a criação de uma solução funcional para o gerenciamento de produtos e controle de estoque.
+
+Durante o desenvolvimento do projeto, foram utilizados conceitos fundamentais da programação, como estruturas condicionais, estruturas de repetição, vetores e métodos. Também foram implementadas validações para garantir maior segurança, confiabilidade e organização das informações inseridas pelos usuários.
+
+As funcionalidades desenvolvidas, como cadastro de produtos, controle de entrada e saída de mercadorias, reajuste de preços e geração de relatórios, atenderam aos objetivos propostos pela atividade. Além disso, o projeto evidenciou a importância da organização, padronização e modularização do código no desenvolvimento de sistemas.
+
+Além dos conhecimentos técnicos, o trabalho contribuiu para o desenvolvimento de habilidades relacionadas ao trabalho em equipe, divisão de tarefas e utilização do GitHub para versionamento do projeto, ferramentas essenciais na área de tecnologia e desenvolvimento de software.
+
+Conclui-se que a atividade proporcionou uma experiência prática importante para reforçar os conteúdos estudados em sala de aula, aproximando os integrantes do grupo de situações reais encontradas no ambiente profissional de desenvolvimento de software.
+
+
 ---
-
-##  Apresentação
-
-O vídeo de apresentação do projeto está disponível no link abaixo:
-🔗 (Inserir link do YouTube aqui)
-
----
-
-##  Conclusão
-
-
-
----
-
-Link GitHub: https://github.com/gustasagaz/av3_controle_estoque_algoritmos
