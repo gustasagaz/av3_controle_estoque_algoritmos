@@ -125,25 +125,32 @@ public class FuncoesAuxiliares {
      * @return unidade válida informada ou null em caso de cancelamento
      */
     public static String lerUnidade(String mensagem) {
-        while (true) {
-            String unidade = JOptionPane.showInputDialog(mensagem);
 
-            if (unidade == null) {
-                return null;
-            }
+        boolean valido = false;
+        String unidade = "";
 
-            unidade = unidade.trim();
-
-            if (unidade.equalsIgnoreCase("Kg")
-                    || unidade.equalsIgnoreCase("Un")
-                    || unidade.equalsIgnoreCase("Cx")
-                    || unidade.equalsIgnoreCase("Pct")
-                    || unidade.equalsIgnoreCase("L")) {
-                return unidade;
+        while (!valido) {
+            unidade = JOptionPane.showInputDialog(mensagem);
+            if (unidade != null) {
+                unidade = unidade.trim();
+                if (unidade.equalsIgnoreCase("Kg")
+                        || unidade.equalsIgnoreCase("Un")
+                        || unidade.equalsIgnoreCase("Cx")
+                        || unidade.equalsIgnoreCase("Pct")
+                        || unidade.equalsIgnoreCase("L")) {
+                    valido = true;
+                } else {
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "Use apenas: Kg, Un, Cx, Pct ou L.");
+                }
             } else {
-                JOptionPane.showMessageDialog(null,
-                        "Unidade inválida!\nUse apenas: Kg, Un, Cx, Pct ou L.");
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Digite uma unidade válida."
+                );
             }
         }
+        return unidade;
     }
 }
