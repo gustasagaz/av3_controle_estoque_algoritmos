@@ -93,22 +93,27 @@ public class FuncoesAuxiliares {
      * @return caractere correspondente à resposta informada
      */
     public static char lerSimNao(String mensagem) {
-        while (true) {
-            String resposta = JOptionPane.showInputDialog(mensagem + "\n\nS - Sim\nN - Não");
 
-            if (resposta == null || resposta.length() != 1) {
-                JOptionPane.showMessageDialog(null, "Digite apenas S ou N.");
-                continue;
+        boolean valido = false;
+        char opcao = '\0';
+
+        while (!valido) {
+            String resposta = JOptionPane.showInputDialog(
+                    mensagem + "\n\nS - Sim\nN - Não");
+            if (resposta != null && resposta.length() == 1) {
+                opcao = resposta.charAt(0);
+                if (opcao == 'S' || opcao == 's'
+                        || opcao == 'N' || opcao == 'n') {
+                    valido = true;
+                }
             }
-
-            char opcao = resposta.charAt(0);
-
-            if (opcao == 'S' || opcao == 's' || opcao == 'N' || opcao == 'n') {
-                return opcao;
-            } else {
-                JOptionPane.showMessageDialog(null, "Opção inválida. Digite S ou N.");
+            if (!valido) {
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Digite apenas S ou N.");
             }
         }
+        return opcao;
     }
 
     /**
