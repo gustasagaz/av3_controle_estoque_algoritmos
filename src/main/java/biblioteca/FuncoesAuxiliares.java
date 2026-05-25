@@ -64,19 +64,26 @@ public class FuncoesAuxiliares {
      * @return valor double informado ou -1 em caso de cancelamento
      */
     public static double lerDouble(String mensagem) {
-        while (true) {
-            String entrada = JOptionPane.showInputDialog(mensagem);
 
+        boolean valido = false;
+        double valor = -1;
+
+        while (!valido) {
+            String entrada = JOptionPane.showInputDialog(mensagem);
             if (entrada == null) {
                 return -1;
             }
-
-            try {
-                return Double.parseDouble(entrada);
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Digite apenas números.");
+            entrada = entrada.trim();
+            if (entrada.matches("\\d+(\\.\\d+)?")) {
+                valor = Double.parseDouble(entrada);
+                valido = true;
+            } else {
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Digite apenas números válidos.");
             }
         }
+        return valor;
     }
 
     /**
