@@ -1,4 +1,4 @@
-package auxiliares;
+package biblioteca;
 
 import javax.swing.JOptionPane;
 

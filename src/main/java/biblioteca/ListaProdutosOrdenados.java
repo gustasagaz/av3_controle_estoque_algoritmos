@@ -1,6 +1,8 @@
 package biblioteca;
 
-import javax.swing.*;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 /**
  * Classe responsável pela exibição de produtos em ordem alfabética.
