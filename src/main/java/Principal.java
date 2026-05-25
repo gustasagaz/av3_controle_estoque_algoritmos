@@ -21,7 +21,7 @@ import javax.swing.JTextArea;
  * @author linndev9
  *
  */
-public class Main {
+public class Principal {
 
     /**
      * Vetor responsável por armazenar os nomes dos produtos.
