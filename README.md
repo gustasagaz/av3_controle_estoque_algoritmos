@@ -12,7 +12,7 @@
 | Nome | R.A | GitHub |
 |---|---|---|
 | Douglas de Almeida Ruver | 10726115128 | [DarthRuver007](https://github.com/DarthRuver007) |
-| Vicente Eduardo Ieme Sens | 10726114647 | [vicenteedu](https://github.com/vicenteedu) |
+| Vicente Eduardo Leme Sens | 10726114647 | [vicenteedu](https://github.com/vicenteedu) |
 | João Augusto Maciel de Jesus Xavier | 1072611097 | [joaoa-maciel](https://github.com/joaoa-maciel) |
 | Matheus Godinho de Almeida Linnemann | 10726113992 | [linndev9](https://github.com/linndev9) |
 | Gustavo Willian Sagaz | 1072619904 | [gustasagaz](https://github.com/gustasagaz) |
